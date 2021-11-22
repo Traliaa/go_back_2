@@ -1,0 +1,1 @@
+make watch run="make compile start-server"

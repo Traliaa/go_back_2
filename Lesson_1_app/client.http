@@ -1,0 +1,18 @@
+GET http://localhost:8080/__version__
+Accept: application/json
+
+###
+GET http://localhost:8080/__heartbeat_
+Accept: application/json
+
+###
+GET http://localhost:8080/handler
+Accept: application/json
+
+###
+
+###
+GET http://localhost:8080/*
+Accept: application/json
+
+###
