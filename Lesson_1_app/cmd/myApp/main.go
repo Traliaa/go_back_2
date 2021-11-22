@@ -13,6 +13,8 @@ import (
 	"github.com/Traliaa/go_back_2/version"
 )
 
+var Version = "development"
+
 func main() {
 	launchMode := config.ENV(os.Getenv("LAUNCH_MODE"))
 	if len(launchMode) == 0 {
@@ -26,10 +28,15 @@ func main() {
 	}
 	log.Printf("CONFIG: %+v", cfg)
 	info := handler.VersionInfo{
-		Version: version.Version,
-		Commit:  version.Commit,
-		Build:   version.Build,
+		Name:      version.Name,
+		Version:   version.Version,
+		GoVersion: version.GoVersion,
+		BuildDate: version.BuildDate,
+		GitLog:    version.GitLog,
+		GitHash:   version.GitHash,
+		GitBranch: version.GitBranch,
 	}
+
 	srv := server.NewServer(info, cfg.Port)
 	ctx, cancel := context.WithCancel(context.Background())
 	go func() {

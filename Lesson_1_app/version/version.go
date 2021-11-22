@@ -1,7 +1,11 @@
 package version
 
 var (
-	Version = "unset"
-	Build   = "unset"
-	Commit  = "unset"
+	Name      = "unset"
+	Version   = "unset"
+	GoVersion = "unset"
+	BuildDate = "unset"
+	GitLog    = "unset"
+	GitHash   = "unset"
+	GitBranch = "unset"
 )

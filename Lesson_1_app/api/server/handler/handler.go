@@ -9,9 +9,13 @@ import (
 )
 
 type VersionInfo struct {
-	Version string
-	Commit  string
-	Build   string
+	Name      string
+	Version   string
+	GoVersion string
+	BuildDate string
+	GitLog    string
+	GitHash   string
+	GitBranch string
 }
 type router struct {
 	VersionInfo
@@ -37,9 +41,13 @@ func (rt *router) heartbeatHandler(w http.ResponseWriter, r *http.Request) {
 
 func (rt *router) versionHandler(w http.ResponseWriter, r *http.Request) {
 	version := map[string]string{
-		"version": rt.VersionInfo.Version,
-		"commit":  rt.VersionInfo.Commit,
-		"build":   rt.VersionInfo.Build,
+		"Name":      rt.VersionInfo.Name,
+		"Version":   rt.VersionInfo.Version,
+		"GoVersion": rt.VersionInfo.GoVersion,
+		"BuildDate": rt.VersionInfo.BuildDate,
+		"GitLog":    rt.VersionInfo.GitLog,
+		"GitHash":   rt.VersionInfo.GitHash,
+		"GitBranch": rt.VersionInfo.GitBranch,
 	}
 	response, error := json.Marshal(version)
 	if error != nil {
